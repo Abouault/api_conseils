@@ -52,12 +52,37 @@ module.exports.handleUserPost = async (req, res) => {
 };
 
 module.exports.handleUserPutOne = async (req, res) => {
-  const { name, image, price, description } = req.body;
+  const {
+    firstname,
+    lastname,
+    email,
+    password,
+    phone,
+    bio,
+    zip_code,
+    birthday,
+    role,
+    photo,
+    facebook_url,
+    twitter_url,
+    instagram_url,
+    linkedin_url,
+  } = req.body;
   const attribute = {
-    name,
-    image,
-    price,
-    description,
+    firstname,
+    lastname,
+    email,
+    password,
+    phone,
+    bio,
+    zip_code,
+    birthday,
+    role,
+    photo,
+    facebook_url,
+    twitter_url,
+    instagram_url,
+    linkedin_url,
   };
   const data = await putOneUser(req.params.id, attribute);
   res.send(data);
