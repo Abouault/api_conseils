@@ -16,13 +16,37 @@ module.exports.handleUserGetOne = async (req, res) => {
 };
 
 module.exports.handleUserPost = async (req, res) => {
-  const { name, price, description, image, category } = req.body;
+  const {
+    firstname,
+    lastname,
+    email,
+    password,
+    phone,
+    bio,
+    zip_code,
+    birthday,
+    role,
+    photo,
+    facebook_url,
+    twitter_url,
+    instagram_url,
+    linkedin_url,
+  } = req.body;
   const data = await postOneUser({
-    name,
-    image,
-    price,
-    description,
-    category,
+    firstname,
+    lastname,
+    email,
+    password,
+    phone,
+    bio,
+    zip_code,
+    birthday,
+    role,
+    photo,
+    facebook_url,
+    twitter_url,
+    instagram_url,
+    linkedin_url,
   });
   return res.status(201).send(data);
 };
