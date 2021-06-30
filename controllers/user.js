@@ -1,5 +1,6 @@
 const {
   getAllUsers,
+  getAllAnimators,
   findById,
   postOneUser,
   putOneUser,
@@ -9,6 +10,18 @@ const {
 module.exports.handleUsersGetAll = async (req, res) => {
   const rawData = await getAllUsers();
   res.send(rawData);
+};
+
+module.exports.handleAnimatorsGetAll = async (req, res) => {
+  const datas = await getAllAnimators(req);
+  res.send(
+    datas.map(({ id, firstname, lastname, photo }) => ({
+      id,
+      firstname,
+      lastname,
+      photo,
+    }))
+  );
 };
 
 module.exports.handleUserGetOne = async (req, res) => {

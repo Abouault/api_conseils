@@ -7,9 +7,11 @@ const {
   handleUserPost,
   handleUserPutOne,
   handleUserDeleteOne,
+  handleAllAnimators,
 } = require("../controllers/user");
 
 userRouter.get("/", asyncHandler(handleUsersGetAll));
+userRouter.get("/animators", asyncHandler(handleAllAnimators));
 userRouter.get("/:id", asyncHandler(handleUserGetOne));
 userRouter.post("/", asyncHandler(handleUserPost));
 userRouter.put("/:id", asyncHandler(handleUserPutOne));
