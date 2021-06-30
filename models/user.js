@@ -2,6 +2,10 @@ const db = require("../db.js");
 const { RecordNotFoundError } = require("../error-types");
 const definedAttributesToSqlSet = require("../helpers/definedAttributesToSQLSet.js");
 
+const getAllAnimators = async () => {
+  return db.query(`SELECT * FROM user WHERE role = "animator"`);
+};
+
 const findById = async (id, failIfNotFound = true) => {
   const rows = await db.query("SELECT * FROM user WHERE id = ?", [id]);
   if (rows.length) {
@@ -40,6 +44,7 @@ const deleteOneUser = async (id) => {
 
 module.exports = {
   getAllUsers,
+  getAllAnimators,
   findById,
   postOneUser,
   putOneUser,
