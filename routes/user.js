@@ -1,5 +1,6 @@
 const userRouter = require("express").Router();
 const asyncHandler = require("express-async-handler");
+const handleImageUpload = require("../middlewares/handleImageUpload");
 
 const {
   handleUsersGetAll,
@@ -13,7 +14,7 @@ const {
 userRouter.get("/", asyncHandler(handleUsersGetAll));
 userRouter.get("/animators", asyncHandler(handleAllAnimators));
 userRouter.get("/:id", asyncHandler(handleUserGetOne));
-userRouter.post("/", asyncHandler(handleUserPost));
+userRouter.post("/", handleImageUpload, asyncHandler(handleUserPost));
 userRouter.put("/:id", asyncHandler(handleUserPutOne));
 userRouter.delete("/:id", asyncHandler(handleUserDeleteOne));
 
