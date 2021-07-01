@@ -16,7 +16,7 @@ if (!inProdEnv && !inTestEnv) {
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/file-storage/public", express.static("file-storage/public"));
+app.use("/file-storage", express.static("file-storage"));
 
 // routes
 require("./routes")(app);
