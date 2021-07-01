@@ -29,6 +29,7 @@ module.exports.handleUserGetOne = async (req, res) => {
 };
 
 module.exports.handleUserPost = async (req, res) => {
+  const photo = req.file ? req.file.path : null;
   const {
     firstname,
     lastname,
@@ -39,7 +40,6 @@ module.exports.handleUserPost = async (req, res) => {
     zip_code,
     birthday,
     role,
-    photo,
     facebook_url,
     twitter_url,
     instagram_url,
